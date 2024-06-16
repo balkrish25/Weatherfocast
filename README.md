@@ -64,5 +64,5 @@ Weather Dashboard is a React application that displays the current weather and a
    npm start
 
 3. **Access the Application**:
-   -Open your web browser and navigate to http://localhost:3000.
+   - Open your web browser and navigate to http://localhost:3000.
 
