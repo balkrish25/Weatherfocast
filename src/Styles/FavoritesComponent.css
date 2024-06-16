@@ -1,0 +1,35 @@
+/* FavoritesComponent.css */
+.favorites-component {
+    margin: 20px;
+    text-align: left;
+  }
+  
+  .favorites-component ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .favorites-component li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 5px 0;
+    background-color: #f9f9f9;
+  }
+  
+  .favorites-component button {
+    margin-left: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: #61dafb;
+    color: white;
+    padding: 5px 10px;
+  }
+  
+  .favorites-component button:hover {
+    background-color: #21a1f1;
+  }
+  

@@ -1,0 +1,33 @@
+
+.weather-display-component {
+    margin: 20px;
+    text-align: left;
+  }
+  
+  .current-weather {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  
+  .forecast {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .forecast-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    flex: 1 0 21%; /* Adjust this value to control the width of forecast items */
+  }
+  
+  .forecast-item p {
+    margin: 5px 0;
+  }
+  
