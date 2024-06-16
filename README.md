@@ -34,3 +34,35 @@ Weather Dashboard is a React application that displays the current weather and a
    git clone <repository-url>
    cd <repository-directory>
 
+2. **Install Dependencies**:
+   ```bash
+    npm install
+
+3. **Create a db.json file**:
+   ```bash
+   Create a db.json file in the root of your project with the following content:
+   {
+     "favorites": []
+   }
+
+4. **Obtain an OpenWeatherMap API Key**:
+   - Go to OpenWeatherMap and sign up for a free account.
+   - Once logged in, navigate to the "API keys" tab in your profile.
+   - Create a new API key and copy it.
+   - Replace the placeholder YOUR_ACTUAL_API_KEY_HERE in the WeatherDashboard component with your actual API key.
+
+
+### Running the Application
+
+
+1. **Start the JSON Server**:
+   ```bash
+   npx json-server --watch db.json --port 5000
+
+2. **Start the React Application**:
+   ```bash
+   npm start
+
+3.**Access the Application**:
+   -Open your web browser and navigate to http://localhost:3000.
+
