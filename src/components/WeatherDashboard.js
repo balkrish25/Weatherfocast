@@ -11,7 +11,7 @@ function WeatherDashboard() {
     const [weather, setWeather] = useState(null);
     const [forecast, setForecast] = useState(null);
     const [favorites, setFavorites] = useState([]);
-    // const [unit, setUnit] = useState('metric'); 
+    const [unit, setUnit] = useState('metric'); 
   
     useEffect(() => {
       const lastSearchedCity = localStorage.getItem('lastSearchedCity');
