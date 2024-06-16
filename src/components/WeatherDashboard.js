@@ -5,13 +5,13 @@ import WeatherDisplayComponent from '../components/WeatherDisplayComponent';
 import FavoritesComponent from '../components/FavoritesComponent';
 import '../Styles/WeatherDashboard.css';
 
-const API_KEY = 'ffa71be10fb5051a51808a987460e39b'; 
-
+const API_KEY = 'ffa71be10fb5051a51808a987460e39b'
 function WeatherDashboard() {
     const [selectedCity, setSelectedCity] = useState('');
     const [weather, setWeather] = useState(null);
     const [forecast, setForecast] = useState(null);
     const [favorites, setFavorites] = useState([]);
+    const [unit, setUnit] = useState('metric'); 
   
     useEffect(() => {
       const lastSearchedCity = localStorage.getItem('lastSearchedCity');
@@ -26,11 +26,11 @@ function WeatherDashboard() {
       if (selectedCity) {
         fetchWeather(selectedCity);
       }
-    }, [selectedCity]);
+    }, [selectedCity, unit]); 
   
     const fetchWeather = async (city) => {
-      const currentWeatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`;
-      const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`;
+      const currentWeatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${API_KEY}`;
+      const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${unit}&appid=${API_KEY}`;
   
       try {
         const currentWeatherResponse = await axios.get(currentWeatherURL);
@@ -74,11 +74,18 @@ function WeatherDashboard() {
         console.error('Error removing favorite:', error);
       }
     };
+
+    const toggleUnit = () => {
+      setUnit(unit === 'metric' ? 'imperial' : 'metric');
+    };
   
     return (
       <div className="weather-dashboard">
         <SearchComponent onSearch={handleSearch} />
-        <WeatherDisplayComponent weather={weather} forecast={forecast} />
+        <button onClick={toggleUnit}>
+          {unit === 'metric' ? 'Switch to Fahrenheit' : 'Switch to Celsius'}
+        </button>
+        <WeatherDisplayComponent weather={weather} forecast={forecast} unit={unit} />
         <FavoritesComponent
           favorites={favorites}
           onSelectCity={handleSearch}
@@ -87,9 +94,6 @@ function WeatherDashboard() {
         />
       </div>
     );
-  }
-  
-  export default WeatherDashboard;
+}
 
-
-
+export default WeatherDashboard;

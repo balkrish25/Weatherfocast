@@ -1,14 +1,21 @@
 .weather-dashboard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .weather-dashboard > * {
-    width: 100%;
-    max-width: 600px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.weather-dashboard button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #61dafb;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.weather-dashboard button:hover {
+  background-color: #21a1f1;
+}

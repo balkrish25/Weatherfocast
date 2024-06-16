@@ -24,7 +24,7 @@
     margin: 5px;
     border-radius: 4px;
     background-color: #f1f1f1;
-    flex: 1 0 21%; /* Adjust this value to control the width of forecast items */
+    flex: 1 0 21%; 
   }
   
   .forecast-item p {

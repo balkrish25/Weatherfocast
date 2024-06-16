@@ -1,11 +1,10 @@
 import React from 'react';
 import '../Styles/WeatherDisplayComponent.css';
 
-function WeatherDisplayComponent({ weather, forecast }) {
+function WeatherDisplayComponent({ weather, forecast, unit }) {
   const getDailyForecast = (forecast) => {
     const dailyData = [];
 
-    // Group the forecast by date
     const forecastByDate = forecast.list.reduce((acc, item) => {
       const date = item.dt_txt.split(' ')[0];
       if (!acc[date]) {
@@ -15,14 +14,13 @@ function WeatherDisplayComponent({ weather, forecast }) {
       return acc;
     }, {});
 
-    // Get one forecast entry per day, preferably around midday
     for (let date in forecastByDate) {
       const dayForecasts = forecastByDate[date];
       const middayForecast = dayForecasts.find((f) => f.dt_txt.includes('12:00:00'));
       dailyData.push(middayForecast || dayForecasts[0]);
     }
 
-    return dailyData.slice(0, 5); // Get the first 5 days
+    return dailyData.slice(0, 5); 
   };
 
   const dailyForecast = forecast ? getDailyForecast(forecast) : [];
@@ -33,7 +31,7 @@ function WeatherDisplayComponent({ weather, forecast }) {
         <div className="current-weather">
           <h2>{weather.name}</h2>
           <p>{weather.weather[0].description}</p>
-          <p>{Math.round(weather.main.temp - 273.15)}°C</p>
+          <p>{Math.round(weather.main.temp)}°{unit === 'metric' ? 'C' : 'F'}</p>
         </div>
       )}
       {dailyForecast.length > 0 && (
@@ -43,7 +41,7 @@ function WeatherDisplayComponent({ weather, forecast }) {
             <div key={index} className="forecast-item">
               <p>{new Date(item.dt_txt).toLocaleDateString()}</p>
               <p>{item.weather[0].description}</p>
-              <p>{Math.round(item.main.temp - 273.15)}°C</p>
+              <p>{Math.round(item.main.temp)}°{unit === 'metric' ? 'C' : 'F'}</p>
             </div>
           ))}
         </div>
